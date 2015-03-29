@@ -1,0 +1,48 @@
+	Coordonnées relatives au coin supérieur gauche de la fenêtre de jeu :
+
+Position des commandes de chaque client :
+
+Client 1 : ( 47 ; 57)
+Client 2 : (148 ; 57)
+Client 3 : (249 ; 57)
+Client 4 : (350 ; 57)
+Client 5 : (451 ; 57)
+Client 6 : (552 ; 57)
+
+Distance entre chaque client : 101 pixels.
+
+Coordonnées des boutons :
+
+Play	 : (350 ; 195)
+Continue : (328 ; 389)
+Skip	 : (540 ; 450)
+
+Coordonnées des ingrédients : 
+
+Schrimp : (35 ; 330)
+Rice 	: (90 ; 330)
+Nori    : (35 ; 380)
+Fish Egg: (90 ; 380)
+Salmon 	: (35 ; 440)
+Unagi  	: (90 ; 440)
+
+Coordonnées du téléphone :
+
+Téléphone : (580 ; 350)
+Topping   : (515 ; 270)  
+Rice 	  : (515 ; 294)		
+Sake      : (515 ; 313)
+Shrimp 	  : (500 ; 220)
+Unagi     : (570 ; 220)
+Nori 	  : (500 ; 275)
+Fish Egg  : (570 ; 275)
+Salmon    : (500 ; 330)
+
+Coordonnées du plan de préparation : 
+(200 ; 380)
+
+
+
+
+
+	
