@@ -1,0 +1,25 @@
+** J'ai fait quelques modifications, maintenant à la fin du jeu on arrive à un score d'environ 40000. **
+
+Pour le jeu SushiGoRound,
+
+On commence par créer une variable SushiGoRound, qui est un objet qui va ouvrir la fenêtre de jeu dans le navigateur par défaut,
+qui va trouver la fenêtre de jeu et initialiser le repère comme le coin gauche supérieur de la fenêtre de jeu. Puis cet objet appelle la fonction tourJeu(),
+qui va en boucle :
+servir les clients de gauche à droite, vérifier si on est proche de la fin du niveau (en regardant la barre d'avancement en haut à droite de la
+fenêtre de jeu), et vérifier si le niveau est fini et si on a gagné ou perdu le niveau.
+
+La méthode chacunSonTour de la classe EnsClients, scanne chaque client de gauche à droite. ( On scanne le premier client, on prépare sa commande,
+puis on scanne le deuxième client, on prépare sa commande, etc.)
+
+Lorsque l'on scanne la commande, on compare l'image obtenue avec l'image de tous les sushis du niveau en cours, si une image correspond, on prépare le sushi,
+sinon c'est que le client n'est pas là où est en train de manger, donc on passe au client suivant.
+
+Pour préparer un sushi, on utilise la méthode fait() de la classe Sushi, qui clique sur chaque ingrédient de la recette du sushi.
+Avant de faire le sushi, on vérifie si le stock de chaque ingrédient est inférieur au seuil de restockage, si c'est le cas, on restocke l'ingrédient.
+Si la variable procheFin de l'objet SushiGoRound est false, on vérifie également le stock de chaque ingrédient après avoir fait le sushi. Par contre si
+on est proche de la fin du niveau, on ne restocke que avant de faire un sushi( ça permet d'éviter de restocker des ingrédients dont on ne va pa avoir 
+besoin, puisque le niveau est presque fini).
+
+Pour restocker les ingrédients, on appuye sur les boutons du téléphone. Si il n'y a pas assez d'argent, le bouton est grisé, et la méthode retock() le détecte.
+Dans ce cas on quitte le télephone et on passe au sushi suivant. Si il y a assez d'argent, on clique sur les boutons, on attends 4sec, on débarasse les client,
+puis on fait le sushi.

@@ -23,43 +23,43 @@ public class Ingredient extends Bouton {
 		/* Attributs de la classe INGREDIENT */
 	/********************************************/
 	
-	// Stock est la variable qui contient le stock courant de l'ingrédient
-	// Restock est la variable qui contient la quantité qui est ajoutée au stock
-	// xt correspond à la coordonnée x de l'ingrédient dans le téléphone
-	// yt correspond à la coordonnée y de l'ingrédient dans le téléphone
+	// Stock est la variable qui contient le stock courant de l'ingrï¿½dient
+	// Restock est la variable qui contient la quantitï¿½ qui est ajoutï¿½e au stock
+	// xt correspond ï¿½ la coordonnï¿½e x de l'ingrï¿½dient dans le tï¿½lï¿½phone
+	// yt correspond ï¿½ la coordonnï¿½e y de l'ingrï¿½dient dans le tï¿½lï¿½phone
 	private int stock, restock, xt, yt;
 	
-	// stock_init correspond au stock intial de l'ingrédient.
-	// SEUIL_RESTOCK correpond au seuil en dessous duquel on restocke l'ingrédients.
+	// stock_init correspond au stock intial de l'ingrï¿½dient.
+	// SEUIL_RESTOCK correpond au seuil en dessous duquel on restocke l'ingrï¿½dients.
 	private final int STOCK_INIT, SEUIL_RESTOCK;
 	
-	// TELEPHONE_X et TELEPHONE_Y correspondent au coordonées auxquelles se trouve le téléphone
+	// TELEPHONE_X et TELEPHONE_Y correspondent au coordonï¿½es auxquelles se trouve le tï¿½lï¿½phone
 	private static int TELEPHONE_X = 580;
 	private static int TELEPHONE_Y = 350;
 	
-	// Contient la valeur qui correpond au pixel grisé lorsque l'on essaye de commander des
-	// ingrédients. (Pour tous les ingrédients sauf le riz)
+	// Contient la valeur qui correpond au pixel grisï¿½ lorsque l'on essaye de commander des
+	// ingrï¿½dients. (Pour tous les ingrï¿½dients sauf le riz)
 	private static int RGB_GRISE = -9602177;
 	
-	// Chemin de boutons sur lesquels il faut cliquer pour restocker l'ingrédient.
+	// Chemin de boutons sur lesquels il faut cliquer pour restocker l'ingrï¿½dient.
 	private CheminBouton <Bouton> cheminRestock;
 	
-	// Repere qui représente le coin gauche supérieur de la fenêtre de jeu, à partir du quel
-	// on calcule la position des différents objets du jeu sur lesquels il faut cliquer dans la 
-	// fenêtre entière
+	// Repere qui reprï¿½sente le coin gauche supï¿½rieur de la fenï¿½tre de jeu, ï¿½ partir du quel
+	// on calcule la position des diffï¿½rents objets du jeu sur lesquels il faut cliquer dans la 
+	// fenï¿½tre entiï¿½re
 	private static Repere r;
 	// rgb correspond Ã  la couleur du pixel quand on essaie de commander l'ingrÃ©dient Ã  l'aide du tÃ©lÃ©phone
 	// et que la case est grisÃ©e (pas assez d'argent)
 	private int rgb;
 
-	// Nom de l'ingrédient
+	// Nom de l'ingrï¿½dient
 	private String nom;
 	
 	/********************************************/
-		/* Constructeurs de la classe Ingrédient */
+		/* Constructeurs de la classe Ingrï¿½dient */
 	/********************************************/
 
-	// Constructeur utilisé pour tous les ingrédients sauf le riz.
+	// Constructeur utilisï¿½ pour tous les ingrï¿½dients sauf le riz.
 	public Ingredient(String nom, int x, int y, RobotRepere robrep, int stock, int restock,
 			CheminBouton <Bouton> chemin, int xt, int yt, int seuil) {
 		super(x, y, robrep);
@@ -77,8 +77,8 @@ public class Ingredient extends Bouton {
 		//this.wait = wait;
 	}
 
-	// Constructeur utilisé pour le riz car la couleur du pixel grisé est différente,
-	// de celle pour les autres ingrédients.
+	// Constructeur utilisï¿½ pour le riz car la couleur du pixel grisï¿½ est diffï¿½rente,
+	// de celle pour les autres ingrï¿½dients.
 	public Ingredient(String nom, int x, int y, RobotRepere robrep, int stock, int restock,
 			CheminBouton <Bouton> chemin, int xt, int yt, int rgb, int seuil) {
 		super(x, y, robrep);
@@ -97,7 +97,7 @@ public class Ingredient extends Bouton {
 	}
 
 	/********************************************/
-		/* Méthodes de la classe Ingrédient */
+		/* Mï¿½thodes de la classe Ingrï¿½dient */
 	/********************************************/
 	
 	/**
@@ -186,14 +186,14 @@ public class Ingredient extends Bouton {
 		// ie. on restocke si il n'y a pas assez d'ingrÃ©dients avant de faire un sushi.
 		//if (!apresmoitie && !avant){
 		for (Ingredient i : recette){
-			if (i.getStock() < i.getSeuil()){
+			if (i.getStock() < 2){
 				System.out.println("Stock Insuffisant");
 				if (!i.restock()) return false;
 				stock = true;
 			}
 		}
 		if (stock){
-			r.delay(3800);
+			r.delay(5500);
 		}
 		return true;
 	

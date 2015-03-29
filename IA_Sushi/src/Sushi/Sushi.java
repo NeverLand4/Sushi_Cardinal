@@ -23,14 +23,14 @@ public class Sushi {
 	// Image du sushi
 	private Image im_sushi;
 	
-	// Image du tapis de préparation vide, permet de vérifier que la commande a bien été 
-	// envoyée et qu'elle n'est pas bloquée sur le tapis
+	// Image du tapis de prï¿½paration vide, permet de vï¿½rifier que la commande a bien ï¿½tï¿½ 
+	// envoyï¿½e et qu'elle n'est pas bloquï¿½e sur le tapis
 	private Image tapis;
 	
 	// Recette du sushi
 	private Recette recette;
 	
-	// Le bouton valider correspond au tapis de préparation sur lequel il faut cliquer pour 
+	// Le bouton valider correspond au tapis de prï¿½paration sur lequel il faut cliquer pour 
 	// envoyer le sushi
 	private Bouton valider;
 	
@@ -48,14 +48,14 @@ public class Sushi {
 	
 	
 	/********************************************/
-		/* Méthodes de la classe SUSHI */
+		/* Mï¿½thodes de la classe SUSHI */
 	/********************************************/
 	/**
 	 * MÃ©thode qui fait un sushi
 	 * @param Robot
 	 * @param Client
 	 * @param Ensemble de clients
-	 * @param presquefin est un booleén qui est vrai si le niveau est presque fini
+	 * @param presquefin est un booleï¿½n qui est vrai si le niveau est presque fini
 	 * @return vrai si le sushi a Ã©tÃ© fait, faux sinon
 	 * @throws IOException
 	 */
@@ -94,6 +94,7 @@ public class Sushi {
 		}
 		// Si on a restockÃ© au moins 1 ingrÃ©dient, on clique sur les assiettes de tous les clients
 		if (stock) {
+			r.delay(2500);
 			e.debarasse();
 		}
 		}
