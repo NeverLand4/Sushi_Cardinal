@@ -16,13 +16,13 @@ public class Niveau2 extends Niveau1{
 		/* Attributs de la classe NIVEAU2 */
 	/********************************************/
 	
-	// Bouton du téléphone pour le saumon
+	// Bouton du tï¿½lï¿½phone pour le saumon
 	protected Bouton t_salmon ;
 	
-	// Chemin pour restocker l'ingrédient salmon
+	// Chemin pour restocker l'ingrï¿½dient salmon
 	protected CheminBouton<Bouton> stock_salmon ;
 	
-	// Ingrédient ajouté au niveau 2
+	// Ingrï¿½dient ajoutï¿½ au niveau 2
 	protected Ingredient salmon ;
 	
 	// Recette du nouveau sushi du niveau 2
@@ -42,7 +42,7 @@ public class Niveau2 extends Niveau1{
 		 stock_salmon = new CheminBouton<Bouton>(
 				t_topping, t_salmon, t_free, t_free);
 		 salmon = new Ingredient("salmon", 35, 440, r, 5, 5, stock_salmon,
-				524, 315, 4);
+				524, 315, 6);
 		 rec_Salmon = new Recette(rice, salmon, nori, salmon);
 		 Salmon_Roll = new Sushi("Salmon_Roll", rec_Salmon, tapis_prep);
 		 super.liste_sushi.add(Salmon_Roll);

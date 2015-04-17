@@ -12,26 +12,26 @@ public class Bouton {
 	// Delai entre chaque clic
 	private static final int DELAY_BTW_CLIC = 10;
 
-	// Delai entre le moment où l'on appuie et le moment où l'on relache la
+	// Delai entre le moment oï¿½ l'on appuie et le moment oï¿½ l'on relache la
 	// souris
 	private static final int DELAY_PRESS_RELEASE = 110;
 
 	/*
-	 * Les attributs suivant sont protected pour que la classe Ingrédient, qui
-	 * hérite de bouton puisse y accéder.
+	 * Les attributs suivant sont protected pour que la classe Ingrï¿½dient, qui
+	 * hï¿½rite de bouton puisse y accï¿½der.
 	 */
 
-	// Coordonnées du bouton dans la fenêtre de jeu
+	// Coordonnï¿½es du bouton dans la fenï¿½tre de jeu
 	protected int x, y;
 
-	// Robot qui permet de cliquer dans la fenêtre de jeu pour faire les
+	// Robot qui permet de cliquer dans la fenï¿½tre de jeu pour faire les
 	// commandes.
 	protected Robot robot;
 
 	/*
-	 * Repere qui représente le coin gauche supérieur de la fenêtre de jeu, à
-	 * partir du quel on calcule la position des différents objets du jeu sur
-	 * lesquels il faut cliquer dans la fenêtre entière
+	 * Repere qui reprï¿½sente le coin gauche supï¿½rieur de la fenï¿½tre de jeu, ï¿½
+	 * partir du quel on calcule la position des diffï¿½rents objets du jeu sur
+	 * lesquels il faut cliquer dans la fenï¿½tre entiï¿½re
 	 */
 	protected Repere rep;
 
@@ -48,12 +48,12 @@ public class Bouton {
 
 	
 	/********************************************/
-	/* Méthodes de la classe Bouton */
+	/* Mï¿½thodes de la classe Bouton */
 	/********************************************/
 
 	
 	/**
-	 * Méthode qui clique sur le bouton
+	 * Mï¿½thode qui clique sur le bouton
 	 */
 	public void clicGauche() {
 		this.robot.delay(DELAY_BTW_CLIC);
@@ -75,6 +75,17 @@ public class Bouton {
 		robot.mousePress(InputEvent.BUTTON1_MASK);
 		robot.delay(DELAY_PRESS_RELEASE);
 		robot.mouseRelease(InputEvent.BUTTON1_MASK);
+	}
+	
+	public void dragTO (int x, int y){
+		this.robot.delay(110);
+		this.robot.mouseMove(this.x, this.y);
+		this.robot.delay(110);
+		this.robot.mousePress(InputEvent.BUTTON1_MASK);
+		this.robot.delay(110);
+		this.robot.mouseMove(x+this.rep.getCoord_x(), y+this.rep.getCoord_y());
+		this.robot.delay(110);
+		this.robot.mouseRelease(InputEvent.BUTTON1_MASK);
 	}
 
 }

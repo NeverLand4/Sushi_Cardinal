@@ -13,7 +13,7 @@ public class Niveau1 {
 		/* Attributs de la classe NIVEAU1 */
 	/********************************************/
 	
-	// Coordonnées des boutons du téléphone et du tapis de préparation
+	// Coordonnï¿½es des boutons du tï¿½lï¿½phone et du tapis de prï¿½paration
 	public static final int t_topping_x = 515;
 	public static final int t_topping_y = 270;
 	public static final int t_free_x = 520;
@@ -27,13 +27,13 @@ public class Niveau1 {
 	public static final int t_roe_x = 570;
 	public static final int t_roe_y = 275;
 	
-	// On crée des boutons pour le téléphone et le tapis de préparation
+	// On crï¿½e des boutons pour le tï¿½lï¿½phone et le tapis de prï¿½paration
 	protected Bouton t_topping, t_free, tapis_prep, t_rice, t_nori, t_roe;
 	
-	// On crée des chemins de boutons qui correspondent aux chemins pour restocker les ingrédients
+	// On crï¿½e des chemins de boutons qui correspondent aux chemins pour restocker les ingrï¿½dients
 	protected CheminBouton<Bouton> stock_rice, stock_roe, stock_nori;
 	
-	// Les ingrédients utilisés dans le niveau 1
+	// Les ingrï¿½dients utilisï¿½s dans le niveau 1
 	protected Ingredient rice, nori, roe;
 	
 	// Les recettes des sushi du niveau 1
@@ -47,7 +47,7 @@ public class Niveau1 {
 	// La liste des sushis du niveau 1
 	protected Liste_Sushi liste_sushi;
 	
-	// La liste des ingrédients du niveau 1
+	// La liste des ingrï¿½dients du niveau 1
 	protected Liste_Ingredients Liste_Ingredients;
 	
 	
@@ -73,9 +73,9 @@ public class Niveau1 {
 		stock_nori = new CheminBouton<Bouton>(t_topping, t_nori, t_free, t_free);
 
 		// Initialisation des IngrÃ©dients
-		rice = new Ingredient("rice", 90, 330, r, 10, 10, stock_rice, 524, 260, -9022635, 4);
-		nori = new Ingredient("nori", 35, 380, r, 10, 10, stock_nori, 524, 260, 4);
-		roe = new Ingredient("roe", 90, 380, r, 10, 10, stock_roe, 604, 260, 4 );
+		rice = new Ingredient("rice", 90, 330, r, 10, 10, stock_rice, 524, 260, -9022635, 6);
+		nori = new Ingredient("nori", 35, 380, r, 10, 10, stock_nori, 524, 260, 6);
+		roe = new Ingredient("roe", 90, 380, r, 10, 10, stock_roe, 604, 260, 6);
 
 		// Initialisation de la liste des ingrÃ©dients
 		Liste_Ingredients = new Liste_Ingredients(rice, nori, roe);

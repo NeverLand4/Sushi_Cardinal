@@ -16,13 +16,13 @@ public class Niveau4 extends Niveau3{
 		/* Attributs de la classe NIVEAU4 */
 	/********************************************/
 	
-	// Bouton de l'ingrédient unagi dans le téléphone
+	// Bouton de l'ingrï¿½dient unagi dans le tï¿½lï¿½phone
 	protected Bouton t_unagi ;
 	
-	// Chemin de boutons pour restocker l'ingrédient unagi
+	// Chemin de boutons pour restocker l'ingrï¿½dient unagi
 	protected CheminBouton<Bouton> stock_unagi;
 	
-	// Ingrédient unagi ajouté au niveau 4
+	// Ingrï¿½dient unagi ajoutï¿½ au niveau 4
 	protected Ingredient unagi;
 	
 	// Recette du nouveau sushi
@@ -40,7 +40,7 @@ public class Niveau4 extends Niveau3{
 		 stock_unagi = new CheminBouton<Bouton>(
 				t_topping, t_unagi, t_free, t_free);
 		 unagi = new Ingredient("unagi", 90, 440, r, 5, 5, stock_unagi, 600,
-				210, 4);
+				210, 6);
 		 rec_Unagi = new Recette(rice, unagi, nori, unagi);
 		 Unagi_Roll = new Sushi("Unagi_Roll", rec_Unagi, tapis_prep);
 		 super.liste_sushi.add(Unagi_Roll);
@@ -49,7 +49,7 @@ public class Niveau4 extends Niveau3{
 	}
 	
 	/********************************************/
-		/* Méthode de la classe NIVEAU4 */
+		/* Mï¿½thode de la classe NIVEAU4 */
 	/********************************************/
 	
 	/** 

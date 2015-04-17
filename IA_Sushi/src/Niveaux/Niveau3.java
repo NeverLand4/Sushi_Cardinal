@@ -16,13 +16,13 @@ public class Niveau3 extends Niveau2 {
 		/* Attributs de la classe NIVEAU3 */
 	/********************************************/
 	
-	// Bouton pour commander l'ingrédient shrimp
+	// Bouton pour commander l'ingrï¿½dient shrimp
 	protected Bouton t_shrimp;
 	
-	// Chemin de boutons pour commander l'ingrédient shrimp
+	// Chemin de boutons pour commander l'ingrï¿½dient shrimp
 	protected CheminBouton<Bouton> stock_shrimp;
 	
-	// Ingrédient ajouté au niveau 3
+	// Ingrï¿½dient ajoutï¿½ au niveau 3
 	protected Ingredient shrimp;
 	
 	// Recette du niveau sushi du niveau 3
@@ -39,7 +39,7 @@ public class Niveau3 extends Niveau2 {
 		super(r);
 		t_shrimp = new Bouton(500, 220, r);
 		stock_shrimp = new CheminBouton<Bouton>(t_topping, t_shrimp, t_free, t_free);
-		shrimp = new Ingredient("shrimp", 35, 330, r, 5, 5, stock_shrimp, 524, 205, 4);
+		shrimp = new Ingredient("shrimp", 35, 330, r, 5, 5, stock_shrimp, 524, 205, 6);
 		rec_Shrimp = new Recette(rice, shrimp, nori, shrimp);
 		Shrimp_Sushi = new Sushi("Shrimp_Sushi", rec_Shrimp, tapis_prep);
 		super.liste_sushi.add(Shrimp_Sushi);
@@ -48,7 +48,7 @@ public class Niveau3 extends Niveau2 {
 
 	
 	/********************************************/
-		/* Méthodes de la classe NIVEAU3 */
+		/* Mï¿½thodes de la classe NIVEAU3 */
 	/********************************************/
 	/** 
 	 * MÃ©thode qui passse au niveau suivant

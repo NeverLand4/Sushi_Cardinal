@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import Ecran.*;
+import Niveaux.Niveau1;
 import Sushi.*;
 public class Client {
 	
@@ -14,18 +15,18 @@ public class Client {
 		/* Attributs de la classe CLIENT */
 	/********************************************/
 	
-	// Représente la taille du screenshot (20x20), que l'on fait pour trouver la commande
+	// Reprï¿½sente la taille du screenshot (20x20), que l'on fait pour trouver la commande
 	// du client
 	private static int taille_image = 20;
 	
-	// Les coordonées x et y du client. Elles correspondent aux coordonnées dans la fenêtre du
-	// jeu à partir desquelles on récupère l'image du sushi commandé par le client. La coordonnée
-	// y est static car elle est la même pour tous les clients.
+	// Les coordonï¿½es x et y du client. Elles correspondent aux coordonnï¿½es dans la fenï¿½tre du
+	// jeu ï¿½ partir desquelles on rï¿½cupï¿½re l'image du sushi commandï¿½ par le client. La coordonnï¿½e
+	// y est static car elle est la mï¿½me pour tous les clients.
 	private static int y = 47;
 	private int x;
 	
 
-	// Ces variables représentent la distance à laquelle se trouve l'assiette par rapport à la 
+	// Ces variables reprï¿½sentent la distance ï¿½ laquelle se trouve l'assiette par rapport ï¿½ la 
 	// commande du client
 	private static int x_assiette = 30;
 	private static int y_assiette = 150;
@@ -34,18 +35,18 @@ public class Client {
 	// ou que l'on vient de servir la commande, cet attribut contient la valeur null.
 	private Sushi s;
 	
-	// Robot qui permet de cliquer dans la fenêtre de jeu pour faire les commandes.
+	// Robot qui permet de cliquer dans la fenï¿½tre de jeu pour faire les commandes.
 	private Robot r;
 	
-	// Repere qui représente le coin gauche supérieur de la fenêtre de jeu, à partir du quel
-	// on calcule la position des différents objets du jeu sur lesquels il faut cliquer dans la 
-	// fenêtre entière
+	// Repere qui reprï¿½sente le coin gauche supï¿½rieur de la fenï¿½tre de jeu, ï¿½ partir du quel
+	// on calcule la position des diffï¿½rents objets du jeu sur lesquels il faut cliquer dans la 
+	// fenï¿½tre entiï¿½re
 	private Repere rep;
 	
-	// Bouton qui représente l'assiette du client
+	// Bouton qui reprï¿½sente l'assiette du client
 	private Bouton assiette;
 	
-	// Cet attribut peut être utilisé pour récupérer une partie du visage du client, pour faire
+	// Cet attribut peut ï¿½tre utilisï¿½ pour rï¿½cupï¿½rer une partie du visage du client, pour faire
 	// des statistiques sur le type de client et leur commandes (PAS ENCORE IMPLEMENTE)
 	private Image image;
 	private static int cpt;
@@ -65,7 +66,7 @@ public class Client {
 	}
 	
 	/********************************************/
-		/* Méthodes de la classe client */
+		/* Mï¿½thodes de la classe client */
 	/********************************************/
 
 	
@@ -81,7 +82,7 @@ public class Client {
 
 
 	/**
-	 * Méthode qui met la commande du client dans l'attribut s de type Sushi
+	 * Mï¿½thode qui met la commande du client dans l'attribut s de type Sushi
 	 * @param commande du client
 	 */
 	public void setSushi (Sushi s){
@@ -94,17 +95,17 @@ public class Client {
 	 * @param ensemble de clients
 	 * @throws IOException
 	 */
-	public void makeSushi (EnsClients e, boolean moitie) throws IOException{
-		// Si le sushi est différent de null, on fait le sushi puis on le remet à null
+	public void makeSushi (EnsClients e, boolean moitie, Niveau1 n, int cpt) throws IOException{
+		// Si le sushi est diffï¿½rent de null, on fait le sushi puis on le remet ï¿½ null
 		if (this.s!=null){
-			this.s.fait(this.r, this.rep, this, e, moitie);
+			this.s.fait(this.r, this.rep, this, e, moitie, n);
 			this.s = null;
 		}
 	}
 	
 	
 	/**
-	 * Méthode qui renvoie l'attribut Sushi du client
+	 * Mï¿½thode qui renvoie l'attribut Sushi du client
 	 * @return commande du client
 	 */
 	
@@ -123,12 +124,12 @@ public class Client {
 	
 	
 	/********************************************/
-	 /* Méthodes pas utilisées dans le programme*/
+	 /* Mï¿½thodes pas utilisï¿½es dans le programme*/
 	/********************************************/
 
 	
 	/**
-	 * Méthode qui crée une image png, qui contient le visage du client
+	 * Mï¿½thode qui crï¿½e une image png, qui contient le visage du client
 	 */
 	public void getIMClient(){
 		try{
@@ -142,14 +143,14 @@ public class Client {
 	}
 	
 	/**
-	 * Méthode qui met dans l'attribut image, le screenshot du visage du client.
+	 * Mï¿½thode qui met dans l'attribut image, le screenshot du visage du client.
 	 */
 	public void setIM (){
 		this.image = new Image (this.r.createScreenCapture(new Rectangle(this.rep.getCoord_x()+x, this.rep.getCoord_y()+y+106,10, 10)));
 	}
 	
 	/**
-	 * Méthode qui retourne un screenshot du visage du client.
+	 * Mï¿½thode qui retourne un screenshot du visage du client.
 	 * @return Image 
 	 */
 	public Image shotIMC (){
@@ -157,7 +158,7 @@ public class Client {
 	}
 	
 	/**
-	 * Méthode qui retourne le contenu de l'attribut Image du client.
+	 * Mï¿½thode qui retourne le contenu de l'attribut Image du client.
 	 * @return Image
 	 */
 	public Image getImage (){

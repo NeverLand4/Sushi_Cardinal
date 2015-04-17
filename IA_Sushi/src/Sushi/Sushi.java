@@ -11,6 +11,7 @@ import Ecran.Image;
 import Ecran.Repere;
 import Ingredient.Ingredient;
 import JEU.SushiGoRound;
+import Niveaux.Niveau1;
 public class Sushi {
 	
 	/********************************************/
@@ -59,7 +60,7 @@ public class Sushi {
 	 * @return vrai si le sushi a été fait, faux sinon
 	 * @throws IOException
 	 */
-	public boolean fait (Robot r, Repere rep, Client c, EnsClients e, boolean presquefin) throws IOException{
+	public boolean fait (Robot r, Repere rep, Client c, EnsClients e, boolean presquefin, Niveau1 n) throws IOException{
 		boolean stock = false;
 		System.out.println("Fait le sushi");
 		// Si le sushi est reconnu
@@ -80,22 +81,31 @@ public class Sushi {
 		while (tapis_occ.equals(this.tapis)==false && !SushiGoRound.finNiveau(r, rep)){
 			tapis_occ = new Image (r.createScreenCapture(new Rectangle (rep.getCoord_x()+166, rep.getCoord_y()+346, 100, 100)));
 			System.out.println("Pas la meme image");
-			e.debarasse();
+			this.valider.clicGauche();
+			e.debarasseA();
 		}
 		// Après avoir fait le sushi, on revérifie le stock et on restocke si nécessaire
 		if (!presquefin){
-		for (Ingredient i : this.recette){
+		boolean peu = false;
+		for (Ingredient i :  n.getListeIngredients()){
+			if (i.getStock() < 2) return true;
+			if ( i.getStock()==4 || i.getStock()==3 || i.getStock()==2){
+				peu = true;
+			}
+		}
+		
+		for (Ingredient i : n.getListeIngredients()){
 			if (i.getStock() < i.getSeuil()){
 				System.out.println("Stock Insuffisant");
-				if (!i.restock()) return false;
+				if (!i.restock()) return true;
 				stock = true;
 			
 		}
 		}
 		// Si on a restocké au moins 1 ingrédient, on clique sur les assiettes de tous les clients
+		if (peu) r.delay(2500);
 		if (stock) {
-			r.delay(2500);
-			e.debarasse();
+			e.debarasseA();
 		}
 		}
 		return true;

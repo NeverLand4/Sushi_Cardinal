@@ -22,7 +22,7 @@ public class SushiGoRound {
 		/* Attributs de la classe SushiGoRound*/
 	/********************************************/
 	
-	// Coordonées des boutons pour commencer le jeu
+	// Coordonï¿½es des boutons pour commencer le jeu
 	private static final int JOUER_X = 320;
 	private static final int JOUER_Y = 195;
 	private static final int CONTINUER_X = 328;
@@ -30,17 +30,17 @@ public class SushiGoRound {
 	private static final int SKIP_X = 540;
 	private static final int SKIP_Y = 450;
 	
-	// Délai entre les screenshot quand on essaie de trouver la fenetre de jeu
+	// Dï¿½lai entre les screenshot quand on essaie de trouver la fenetre de jeu
 	protected static final int DELAY_SCREENSHOT = 1000;
 	
-	// Nombre de fois ou l'on cherche la fenêtre de jeu avant d'arrêter l'éxecution
-	private static final int SEUIL_CHERCHE_JEU = 120;
+	// Nombre de fois ou l'on cherche la fenï¿½tre de jeu avant d'arrï¿½ter l'ï¿½xecution
+	protected static final int SEUIL_CHERCHE_JEU = 120;
 	
-	// Coordonnées de l'image qui indique qu'on passe au niveau suivant
+	// Coordonnï¿½es de l'image qui indique qu'on passe au niveau suivant
 	private static final int GAGNE_X = 173;
 	private static final int GAGNE_Y = 366;
 	
-	// Coordonnées de l'image qui indique qu'on a perdu
+	// Coordonnï¿½es de l'image qui indique qu'on a perdu
 	private static final int PERDU_X = 285;
 	private static final int PERDU_Y = 110;
 	
@@ -50,32 +50,32 @@ public class SushiGoRound {
 	// Image qu'on doit trouver dans la fenetre de jeu pour passer au niveau suivant
 	private static Image continuee = Image.readIm("continuer.png");
 	
-	// Image qu'on doit trouver dans la fenêtre de jeu si on a perdu
+	// Image qu'on doit trouver dans la fenï¿½tre de jeu si on a perdu
 	private static Image perdu = Image.readIm("perdu.png");
 	
-	// Coin supérieur droit de la fenêtre de jeu que l'on cherche au début de l'exec du prog
+	// Coin supï¿½rieur droit de la fenï¿½tre de jeu que l'on cherche au dï¿½but de l'exec du prog
 	protected  Image coinJeu = Image.readIm("Init_recon.png");
 	
-	// Booléen qui est vrai si on est proche de la fin du jeu
+	// Boolï¿½en qui est vrai si on est proche de la fin du jeu
 	private boolean procheFin = false;
 	
-	// Indique les dimensions de la fenêtre de jeu
+	// Indique les dimensions de la fenï¿½tre de jeu
 	protected int dim_jeu_x;
 	protected int dim_jeu_y;
 	
 	// Indique les dimensions de la fenetre de jeu quand la hauteur = largeur
 	protected int taille;
 	
-	// Dimensions des imgages importées
+	// Dimensions des imgages importï¿½es
 	private static final int IM_DIMENSIONS = 20;
 	
-	// On crée des boutons pour passer au niveau suivant
+	// On crï¿½e des boutons pour passer au niveau suivant
 	private Bouton jouer, continuer, skip;
 	
 	// On commence au niveau 1
 	private Niveau1 niveau;
 	
-	// Dimension de l'écran
+	// Dimension de l'ï¿½cran
 	protected Dimension screenSize;
 	
 	// Ensemble des clients du jeu
@@ -101,7 +101,7 @@ public class SushiGoRound {
 	
 
 	/**
-	 * Méthode qui renvoie vrai si on est à la fin du niveau
+	 * Mï¿½thode qui renvoie vrai si on est ï¿½ la fin du niveau
 	 * @param Robot
 	 * @param repere
 	 * @return boolean fin niveau
@@ -128,9 +128,17 @@ public class SushiGoRound {
 				"http://www.miniclip.com/games/sushi-go-round/fr/focus/"));
 	}
 	
+	public void ouvreFenetre(String adresse) throws IOException, URISyntaxException {
+		Desktop.getDesktop()
+		.browse(new URI(adresse));
+	}
+	
+	public Niveau1 getNiveau (){
+		return this.niveau;
+	}
 	
 	/**
-	 * Méthode qui réinitialise certains attributs
+	 * Mï¿½thode qui rï¿½initialise certains attributs
 	 * @throws IOException
 	 */
 	public void reinit_Repere() throws IOException{
@@ -175,8 +183,9 @@ public class SushiGoRound {
 	 * MÃ©thode qui dÃ©marre le jeu en cliquant sur diffÃ©rents boutons
 	 * 
 	 * @throws IOException
+	 * @throws URISyntaxException 
 	 */
-	public void commenceJeu() throws IOException {
+	public void commenceJeu() throws IOException, URISyntaxException {
 		jouer.clicGauche();
 		jouer.clicGauche();
 		continuer.clicGauche();
@@ -190,8 +199,8 @@ public class SushiGoRound {
 	
 	
 	/**
-	 * Méthode qui met l'attribut procheFin à vrai si on est proche d el a fin du niveau
-	 * Pour savoir on regarde la barre d'avancement en haut à droite de l'écran de jeu.
+	 * Mï¿½thode qui met l'attribut procheFin ï¿½ vrai si on est proche d el a fin du niveau
+	 * Pour savoir on regarde la barre d'avancement en haut ï¿½ droite de l'ï¿½cran de jeu.
 	 */
 	public void checkTime(){
 		if (!procheFin){
@@ -283,8 +292,9 @@ public class SushiGoRound {
 	 * MÃ©thode qui joue au jeu Sushi Go Round. 
 	 * @throws IOException
 	 * @throws JeuFiniException 
+	 * @throws URISyntaxException 
 	 */
-	public void joue() throws IOException, JeuFiniException {
+	public void joue() throws IOException, JeuFiniException, URISyntaxException {
 		this.reinit_Repere();
 		this.commenceJeu();
 		int n = 0;

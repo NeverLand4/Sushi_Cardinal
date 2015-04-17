@@ -18,7 +18,11 @@ import Ecran.RobotRepere;
 
 public class Cardinal extends SushiGoRound{
 	
+	/********************************************/
 	
+		/* Constructeur de la classe Cardinal */
+	
+	/********************************************/
 	public Cardinal(Robot r, Repere rep, int dim_x, int dim_y, String coinJeu)throws IOException, URISyntaxException {
 		super(r, rep);
 			robotrep = new RobotRepere(r, rep);		
@@ -29,18 +33,30 @@ public class Cardinal extends SushiGoRound{
 			taille = 0;	
 
 	}
+	
+	/********************************************/
+	
+		/* Méthodes de la classe Image */
+	
+	/********************************************/
 
+	/**
+	 * Ouvre la fenêtre du jeu Cardinal, et met la fenêtre de jeu au centre de la fenêtre du navigateur
+	 */
+	
 	public void ouvreFenetre() throws IOException, URISyntaxException {
 		Desktop.getDesktop()
 		.browse(new URI(
 				"http://www.newgrounds.com/portal/view/634256"));
 		this.robotrep.getRobot().delay(5000);
-		this.robotrep.getRobot().mouseWheel(3);
+		this.robotrep.getRobot().mouseWheel(2);
 	}
 
 
-
-	public void commenceJeu() throws IOException{
+	/** 
+	 * Fonction qui commence le jeu en appuyant sur le bouton play
+	 */
+	public void commenceJeu() throws IOException, URISyntaxException{
 		Bouton play = new Bouton(270,522,this.robotrep);
 		play.clicGauche();
 		// 
@@ -57,6 +73,9 @@ public class Cardinal extends SushiGoRound{
 		
 	}
 	
+	/**
+	 * Fonction qui joue au jeu Cardinal
+	 */
 	public void joue() throws IOException{
 		//System.out.println(this.robotrep.getRepere().getCoord_x()+" "+this.robotrep.getRepere().getCoord_y());
 		this.robotrep.setRepere(new Repere (this.robotrep.getRepere().getCoord_x(), this.robotrep.getRepere().getCoord_y()-530));
@@ -64,45 +83,39 @@ public class Cardinal extends SushiGoRound{
 		play.clicGauche();
 		this.robotrep.getRobot().delay(1500);
 		//int a = 0;
-		for (int i = 0 ; i < 100; i ++){
+		for (int i = 0 ; i < 5000; i ++){
 		BufferedImage im = this.robotrep.getRobot().createScreenCapture(new Rectangle(this.robotrep.getRepere().getCoord_x(),
 				this.robotrep.getRepere().getCoord_y(), 550 ,550));
 		/*ImageIO.write(im,"png", new File( "test"+i+".png"));*/
-		System.out.println(im.getRGB(270,90)+" "+im.getRGB(270,460)+" "+im.getRGB(90,270)+" "+im.getRGB(460,270));
 		
 		 if (im.getRGB(270,90)!=-5242598){
 			
-			 System.out.println("up");
 			this.robotrep.getRobot().keyPress(KeyEvent.VK_UP);
-			//this.robotrep.getRobot().delay(500);
+			this.robotrep.getRobot().delay(110);
 			this.robotrep.getRobot().keyRelease(KeyEvent.VK_UP);
 		
 			
 		}
 		 else if ( im.getRGB(270,460)!=-5242598){
-			 System.out.println("down");
 			 this.robotrep.getRobot().keyPress(KeyEvent.VK_DOWN);
-				//this.robotrep.getRobot().delay(500);
+				this.robotrep.getRobot().delay(110);
 				this.robotrep.getRobot().keyRelease(KeyEvent.VK_DOWN);
 		
 		}
 		 else if (im.getRGB(90,270)!=-5242598) {
-			 System.out.println("lfeft");
 			 this.robotrep.getRobot().keyPress(KeyEvent.VK_LEFT);
-				//this.robotrep.getRobot().delay(500);
+				this.robotrep.getRobot().delay(110);
 				this.robotrep.getRobot().keyRelease(KeyEvent.VK_LEFT);
 			
 		}
 		 else if (im.getRGB(460,270)!=-5242598 ){
 			
-			 System.out.println("right");
 			 this.robotrep.getRobot().keyPress(KeyEvent.VK_RIGHT);
-			//this.robotrep.getRobot().delay(500);
+			this.robotrep.getRobot().delay(110);
 			this.robotrep.getRobot().keyRelease(KeyEvent.VK_RIGHT);
 		
 		}
-		 System.out.println(i);
-			this.robotrep.getRobot().delay(490);
+			this.robotrep.getRobot().delay(300);
 		}
 		
 	}

@@ -20,7 +20,7 @@ import Ecran.Repere;
 rouge -1565664
 jaune -462848
 bleu -12012320
-scanner Ã  200 px (y)
+scanner ÃƒÂ  200 px (y)
  */
 
 public class ColorFinger extends Cardinal{
@@ -31,7 +31,7 @@ public class ColorFinger extends Cardinal{
 	
 	/********************************************/
 	
-	// Les différents boutons du jeu
+	// Les diffÃ©rents boutons du jeu
 	private Bouton vert;
 	private Bouton rouge;
 	private Bouton bleu;
@@ -61,12 +61,12 @@ public class ColorFinger extends Cardinal{
 	
 	/********************************************/
 	
-		/* Méthodes de la classe ColorFinger */
+		/* MÃ©thodes de la classe ColorFinger */
 
 	/********************************************/
 	
 	/**
-	 * Modification de méthode trouveFenêtre héritée
+	 * Modification de mÃ©thode trouveFenÃªtre hÃ©ritÃ©e
 	 */
 	public boolean trouveFenetre() throws IOException, URISyntaxException {
 		Image screenshot;
@@ -84,13 +84,13 @@ public class ColorFinger extends Cardinal{
 		else {
 			int[] coin = Image.computeImageCorner(corner_px, coinJeu, screenshot,this.taille);
 			this.robotrep.setRepere(new Repere(coin[0]-166, coin[1]-411));
-			this.robotrep.getRobot().mouseMove(this.robotrep.getRepere().getCoord_x(), this.robotrep.getRepere().getCoord_y());
+			//this.robotrep.getRobot().mouseMove(this.robotrep.getRepere().getCoord_x(), this.robotrep.getRepere().getCoord_y());
 			return true;
 		}
 	}
 	
 	/**
-	 * Initialise les différents boutons 
+	 * Initialise les diffÃ©rents boutons 
 	 */
 	public void initBoutons(){
 		joue = new Bouton (300, 600, this.robotrep);
@@ -106,14 +106,9 @@ public class ColorFinger extends Cardinal{
 	public void commenceJeu() throws IOException, URISyntaxException{
 		this.ouvreFenetre("http://www.newgrounds.com/portal/view/642967");
 		this.robotrep.getRobot().delay(10000);
-		this.robotrep.getRobot().mouseWheel(5);
-		this.trouveFenetre();
+		this.robotrep.getRobot().mouseWheel(9);this.trouveFenetre();
 		this.robotrep.getRobot().mouseMove(this.robotrep.getRepere().getCoord_x() ,
 				this.robotrep.getRepere().getCoord_y());
-		this.robotrep.getRobot().delay(5000);
-		/*ImageIO.write(jeu.robotrep.getRobot().createScreenCapture(new Rectangle(
-				jeu.robotrep.getRepere().getCoord_x(), jeu.robotrep.getRepere().getCoord_y(),640,667)),
-				"png", new File ("testColortaille.png"));*/
 		initBoutons();
 		joue.clicGauche();
 		joue.clicGauche();
@@ -121,11 +116,12 @@ public class ColorFinger extends Cardinal{
 		joue.clicGauche();
 		this.robotrep.getRobot().delay(3000);
 		vert.dragTO(90, 200);
+		
 		this.robotrep.getRobot().delay(4000);
 	}
 	
 	/**
-	 * Méthode qui scanne une ligne et fait un drag and drop vers le pixel si il est coloré
+	 * MÃ©thode qui scanne une ligne et fait un drag and drop vers le pixel si il est colorÃ©
 	 * @param n
 	 */
 	public void scanneLigne (int n){
@@ -141,35 +137,38 @@ public class ColorFinger extends Cardinal{
 			 bleu -12012320*/
 			/*System.out.println(i+" "+k+" "+im.getRGB(i, k));*/
 			if (im.getRGB(i, k)==-9913280) {
-				this.vert.dragTO(i,150+k);
+				this.vert.dragTO(i,200+k);
 				break;
 				}
 			else if (im.getRGB(i, k)==-1565664){
-				this.rouge.dragTO(i, 150+k);
+				this.rouge.dragTO(i, 200+k);
 				break;
 			}
 							
 			else if (im.getRGB(i, k)==-462848) {
-				this.jaune.dragTO(i, 150+k);
+				this.jaune.dragTO(i, 200+k);
 				break;
 			}
 							
 			else if (im.getRGB(i, k)==-12012320) {
-				this.bleu.dragTO(i, 150+k);
+				this.bleu.dragTO(i, 200+k);
 				break;
 				}
 			}
 
 		}
+		this.robotrep.getRobot().delay(200);
 	}
-	
 	/**
-	 * Méthode qui joue au jeu ColorFinger
+	 * MÃ©thode qui joue au jeu ColorFinger
 	 */
 	public  void joue (){
 		for (int i = 0 ; i < 5000 ; i++){
-			this.scanneLigne(5);
+			this.scanneLigne(400);
+			this.scanneLigne(300);
 			this.scanneLigne(200);
+			this.scanneLigne(100);
+			this.scanneLigne(5);
 		}
 	}
 	
